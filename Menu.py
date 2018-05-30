@@ -16,14 +16,15 @@ class Menu():
         prompt = "?"
         
         while True:
-            user_input=input(first_line+prompt)
+            user_input=input(first_line+prompt+"\n")
             try:
                 x=int(user_input.strip())
                 choice=self.choices[x-1]
+                choice.onSelect(x)
             except ValueError:
                     prompt="ERROR please input an integer in {}-{}?\n".format(1, len(self.choices))
                     continue 
-            return choice.onSelect(x)
+            
 
         
 
