@@ -1,11 +1,12 @@
-from choice import Choice, exitChoice
+from choice import Choice, exitChoice, keyGenerator
 from Menu import Menu
 from Todos import Todos
 
 
 if __name__=="__main__":
     
-    MainTodo=Todos()
+    
+    #keyGenerated=keyGenerator()
     menu = Menu("Please select an item")
     menu.addChoice([
         Choice('Add Todo'), Choice('Delete Todo'),Choice('View Todos'), exitChoice('Exit')

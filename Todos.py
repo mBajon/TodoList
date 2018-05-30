@@ -9,7 +9,8 @@ class Todos():
         self.TodoDict.pop(Date)
     
     def __str__(self):
-        return print(self.TodoDict)
+        for key, value in self.TodoDict.items():
+            print("date:{}  value:{}".format(key,value))
 
 class Todo():
     def __init__(self,date,text):
