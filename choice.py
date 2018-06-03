@@ -5,7 +5,7 @@ class Choice(object):
     def __init__(self,choiceDesc):
         self.choiceDesc=choiceDesc
 
-    def onSelect(self,index,*kwargs):
+    def onSelect(self,index):
         print("**'{}' was selected".format(self.choiceDesc))
         MainTodo=Todos()
         if index==1:
@@ -20,6 +20,8 @@ class Choice(object):
             print("** Todo id:'{}' was deleted".format(deletedTodoId))
         elif index==3:
             MainTodo.__str__()
+        else:
+            exitChoice.onSelect()
         return self
         
 class exitChoice(Choice):

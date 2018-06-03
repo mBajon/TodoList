@@ -6,10 +6,8 @@ from Todos import Todos
 if __name__=="__main__":
 
     menu = Menu("Please select an item")
-    menu.addChoice([
+    menu.addChoice(
+    [
         Choice('Add Todo'), Choice('Delete Todo'),Choice('View Todos'), exitChoice('Exit')
     ])
     menu.view()
-
-
-        
