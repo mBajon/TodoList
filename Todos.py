@@ -1,18 +1,22 @@
+import itertools
+
 class Todos():
 
     TodoDict={}
 
     def addTodo(self,Todo):
-        self.TodoDict[Todo.date]=Todo.todotext
+        self.TodoDict[Todo.id]=Todo.todotext
 
-    def delTodo(self,Date):
-        self.TodoDict.pop(Date)
+    def delTodo(self,id):
+        self.TodoDict.pop(id)
     
     def __str__(self):
+        '''print(self.TodoDict)'''
         for key, value in self.TodoDict.items():
-            print("date:{}  value:{}".format(key,value))
+            print("id:{}  value:{}".format(key,value))
 
 class Todo():
-    def __init__(self,date,text):
-        self.date=date
+    id=itertools.count(0,1)
+    def __init__(self,text):
+        self.id=Todo.id.__next__()
         self.todotext=text

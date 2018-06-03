@@ -17,7 +17,8 @@ class Choice(object):
         MainTodo=Todos()
         if index==1:
             user_input=input("Please add the Todo: \n")
-            MainTodo.addTodo(Todo(next(self.keyGenerator()),user_input))
+            #date= keyGenerator()
+            MainTodo.addTodo(Todo(user_input))
             print("\n {} was added".format(user_input))
         elif index ==2:
             MainTodo.delTodo
