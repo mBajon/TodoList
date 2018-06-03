@@ -20,7 +20,7 @@ class Menu():
                 choice=self.choices[x-1]
                 choice.onSelect(x)
             except ValueError:
-                    prompt="ERROR please input an integer in {}-{}?\n".format(1, len(self.choices))
+                    print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices)))
             continue 
             
 
