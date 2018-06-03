@@ -1,5 +1,3 @@
-from __future__ import (absolute_import, division,
-                            print_function, unicode_literals)
 from choice import Choice,exitChoice
 
 class Menu():
@@ -23,7 +21,7 @@ class Menu():
                 choice.onSelect(x)
             except ValueError:
                     prompt="ERROR please input an integer in {}-{}?\n".format(1, len(self.choices))
-                    continue 
+            continue 
             
 
         
