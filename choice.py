@@ -1,5 +1,7 @@
 from Todos import Todo,Todos
 
+MainTodo=Todos()
+
 class Choice(object):
 
     def __init__(self,choiceDesc):
@@ -7,12 +9,12 @@ class Choice(object):
 
     def onSelect(self,index):
         print("**'{}' was selected".format(self.choiceDesc))
-        MainTodo=Todos()
+
         if index==1:
-            user_input=input("Please add the Todo: \n")
-            MainTodo.addTodo(Todo(user_input))
-            print("\n {} was added".format(user_input))
-            
+            try:
+                self.onAdd(MainTodo)
+            except Exception:
+                print("sth went wrong")
         elif index ==2:
             try:
                 self.onDelete(MainTodo)
@@ -29,6 +31,11 @@ class Choice(object):
         deletedTodoId=int(user_input.strip())
         MainTodo.delTodo(deletedTodoId)
         print("** Todo id:'{}' was deleted".format(deletedTodoId))
+
+    def onAdd(self,MainTodo):
+            user_input=input("Please add the Todo: \n")
+            MainTodo.addTodo(Todo(user_input))
+            print("\n {} was added".format(user_input))        
 
 
 class exitChoice(Choice):
