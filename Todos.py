@@ -8,7 +8,10 @@ class Todos():
         self.TodoDict[Todo.id]=Todo.todotext
 
     def delTodo(self,id):
-        self.TodoDict.pop(id)
+        if self.TodoDict:
+            self.TodoDict.pop(id)
+        else:
+            print("There are no ToDos to delete...")
     
     def __str__(self):
         '''print(self.TodoDict)'''

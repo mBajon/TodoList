@@ -14,16 +14,23 @@ class Choice(object):
             print("\n {} was added".format(user_input))
             
         elif index ==2:
-            user_input=input("Please provide the Todo id: \n")
-            deletedTodoId=int(user_input.strip())
-            MainTodo.delTodo(deletedTodoId)
-            print("** Todo id:'{}' was deleted".format(deletedTodoId))
+            try:
+                self.onDelete(MainTodo)
+            except KeyError:
+                print("Please provide a valid ToDo ID")
         elif index==3:
             MainTodo.__str__()
         else:
             exitChoice.onSelect()
         return self
-        
+
+    def onDelete(self,MainTodo):
+        user_input=input("Please provide the Todo id: \n")
+        deletedTodoId=int(user_input.strip())
+        MainTodo.delTodo(deletedTodoId)
+        print("** Todo id:'{}' was deleted".format(deletedTodoId))
+
+
 class exitChoice(Choice):
     def onSelect(self):
         print("bye bye ")
