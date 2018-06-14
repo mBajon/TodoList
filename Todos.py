@@ -14,7 +14,6 @@ class Todos():
             print("There are no ToDos to delete...")
     
     def __str__(self):
-        '''print(self.TodoDict)'''
         for key, value in self.TodoDict.items():
             print("id:{}  value:{}".format(key,value))
 

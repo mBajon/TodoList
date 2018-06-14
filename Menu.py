@@ -1,4 +1,4 @@
-from choice import Choice,exitChoice
+from choice import Choice,exitingChoice
 
 class Menu():
     def __init__(self,question):
@@ -21,7 +21,7 @@ class Menu():
                 if userChoice!=4:
                     choice.onSelect(userChoice)
                 else:
-                    exitChoice.onSelect(self)
+                    exitingChoice.onSelect(self)
             except ValueError:
                     print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices)))
             continue 
