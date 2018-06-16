@@ -16,12 +16,13 @@ class Choice(object):
 
 class exitingChoice(Choice):
     def onSelect(self):
+        self.printSelected()
         print("bye bye ")
         raise SystemExit
 
 class addingChoice(Choice):
     def onSelect(self,index):
-        print("**'{}' was selected".format(self.choiceDesc))
+        self.printSelected()
         try:
             self.onAdd(MainTodo)
         except Exception:
@@ -35,13 +36,14 @@ class addingChoice(Choice):
 
 class deletingChoice(Choice):
     def onSelect(self,index):
+        self.printSelected()
         try:
             self.onDelete(MainTodo)
         except KeyError:
             print("Please provide a valid ToDo ID")
 
     def onDelete(self,MainTodo):
-        user_input=input("Please provide the Todo id: \n")
+        user_input=input("Please provide the Todo id to be deleted: \n")
         deletedTodoId=int(user_input.strip())
         MainTodo.delTodo(deletedTodoId)
         print("** Todo id:'{}' was deleted".format(deletedTodoId))
