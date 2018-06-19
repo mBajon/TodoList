@@ -7,11 +7,18 @@ class Todos():
     def addTodo(self,Todo):
         self.TodoDict[Todo.id]=Todo.todotext
 
-    def delTodo(self,id):
+    def delTodo(self,TodoId):
         if self.TodoDict:
-            self.TodoDict.pop(id)
+            self.TodoDict.pop(TodoId)
         else:
             print("There are no ToDos to delete...")
+
+    def modTodo(self,TodoId,NewTodoDesc):
+        if self.TodoDict:
+            self.TodoDict[TodoId]=NewTodoDesc
+        else:
+            print("There are no ToDos to modify...")
+     
     
     def __str__(self):
         for key, value in self.TodoDict.items():

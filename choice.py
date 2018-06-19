@@ -10,7 +10,7 @@ class Choice(object):
     def printSelected(self):
         print("**'{}' was selected".format(self.choiceDesc))
 
-    def onSelect(self,index):
+    def onSelect(self):
         pass
 
 
@@ -21,7 +21,7 @@ class exitingChoice(Choice):
         raise SystemExit
 
 class addingChoice(Choice):
-    def onSelect(self,index):
+    def onSelect(self):
         self.printSelected()
         try:
             self.onAdd(MainTodo)
@@ -47,3 +47,19 @@ class deletingChoice(Choice):
         deletedTodoId=int(user_input.strip())
         MainTodo.delTodo(deletedTodoId)
         print("** Todo id:'{}' was deleted".format(deletedTodoId))
+
+class modifingChoice(Choice):
+    def onSelect(self,MainTodo):
+        user_input=input("Please provide the Todo id to be modified: \n")
+        modifiedTodoID=int(user_input.strip())
+        user_new_todo_desc=input("Please provide the new todo description: \n")
+        MainTodo.modTodo(modifiedTodoID,user_new_todo_desc)
+        print("** Todo id:'{}' was modified".format(modifiedTodoID))
+
+MethodDictionary={
+                  1:addingChoice.onSelect,
+                  2:modifingChoice.onSelect,
+                  3:deletingChoice.onSelect,
+                  4:MainTodo.__str__,
+                  5:exitingChoice.onSelect
+                 }

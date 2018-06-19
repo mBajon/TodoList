@@ -1,4 +1,4 @@
-from choice import Choice,exitingChoice
+from choice import Choice,MethodDictionary,exitingChoice
 
 class Menu():
     def __init__(self,question):
@@ -17,9 +17,9 @@ class Menu():
             user_input=input(first_line+prompt+"\n")
             try:
                 userChoice=int(user_input.strip())
-                choice=self.choices[userChoice-1]
+                #choice=self.choices[userChoice-1]
                 if userChoice!=4:
-                    choice.onSelect(userChoice)
+                    MethodDictionary[userChoice]()
                 else:
                     exitingChoice.onSelect(self)
             except ValueError:
