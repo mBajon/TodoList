@@ -17,12 +17,15 @@ class Menu():
             user_input=input(first_line+prompt+"\n")
             try:
                 userChoice=int(user_input.strip())
-                #choice=self.choices[userChoice-1]
-                if userChoice!=4:
-                    MethodDictionary[userChoice]()
+                choice=self.choices[userChoice-1]
+                if userChoice!=5:
+                    Choice.onSelect(choice,userChoice)
                 else:
                     exitingChoice.onSelect(self)
             except ValueError:
                     print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices)))
+            except IndexError:
+                    print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices))) 
+
             continue 
             
