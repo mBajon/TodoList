@@ -26,6 +26,5 @@ class Menu():
                     print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices)))
             except IndexError:
                     print("ERROR please input an integer in {}-{}?\n".format(1, len(self.choices))) 
-
             continue 
             

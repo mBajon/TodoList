@@ -8,7 +8,6 @@ class Choice(object):
     def __init__(self,choiceDesc):
         self.choiceDesc=choiceDesc
         self.map_on_select=MethodDictionary
-        #self.MainTodo=Todos()
 
     def printSelected(self):
         print("**'{}' was selected".format(self.choiceDesc))
@@ -18,7 +17,6 @@ class Choice(object):
 
     def on_add(self):
         self.printSelected()
-        #print("**'{}' was selected".format(self.choiceDesc))
         try:
             user_input=input("Please add the Todo: \n")
             Choice.MainTodo.addTodo(Todo(user_input))
