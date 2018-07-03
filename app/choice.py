@@ -1,7 +1,5 @@
 from Todos import Todo,Todos
 
-
-
 class Choice(object):
     MainTodo=Todos()
 

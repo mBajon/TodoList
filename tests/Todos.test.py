@@ -1,9 +1,10 @@
 import unittest
-import app.Todos
+from todo.app.todos import Todos
 #from ..Todos import Todos
 
 class Todos_test(unittest.TestCase):
-    TestTodo=app.Todos.Todos()
+    TestTodo=Todos()
+    assert TestTodo
     #assert(isinstance(TestTodo,Todos),True)
     
 
