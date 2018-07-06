@@ -5,7 +5,7 @@ sys.path.append('../')
 from app import Todos as t
 
 class Todos_Test(unittest.TestCase):
-    
+
     def test_todos(self):
         self.TestTodos=t.Todos()
         self.assertIsInstance(self.TestTodos,t.Todos)
@@ -13,9 +13,10 @@ class Todos_Test(unittest.TestCase):
     def test_adding_todo(self):
         self.TestTodos=t.Todos()
         self.test_todo=t.Todo
-        self.TestTodos.addTodo(self.test_todo("hello"))
+        self.TestTodos.addTodo(self.test_todo("hello33"))
         test_dict_size=len(self.TestTodos.TodoDict)
         self.assertEqual(test_dict_size,1)
+        self.TestTodos.TodoDict.clear()
 
     def test_modyfying_todo(self):
         self.TestTodos=t.Todos()
@@ -26,11 +27,11 @@ class Todos_Test(unittest.TestCase):
 
     def test_deleting_a_todo(self):
         self.TestTodos=t.Todos()
-        self.test_todo=t.Todo
-        self.TestTodos.addTodo(self.test_todo("hello"))
+        self.test_todo=t.Todo 
+        self.TestTodos.addTodo(self.test_todo("hello kurwa"))
         self.TestTodos.delTodo(1)
+        self.TestTodos.__str__()
         test_dict_size=len(self.TestTodos.TodoDict)
-        print(test_dict_size)
         self.assertEqual(test_dict_size,0)
         
 
